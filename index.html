@@ -345,6 +345,98 @@
       margin-bottom: 4px;
     }
 
+    /* Projects */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+    }
+    .project-tag {
+      display: inline-block;
+      background: var(--bg-alt);
+      color: var(--accent-deep);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+    .project-card h3 {
+      font-size: 26px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .project-sub {
+      color: var(--ink-soft);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .project-workflow {
+      list-style: none;
+      counter-reset: step;
+      margin-bottom: 20px;
+    }
+    .project-workflow li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .project-workflow li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-side {
+      background: var(--bg-alt);
+      border-radius: 10px;
+      padding: 24px;
+      align-self: start;
+    }
+    .project-side h4 {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .project-side h4:not(:first-child) {
+      margin-top: 22px;
+    }
+    .project-note {
+      font-size: 13px;
+      color: var(--ink-soft);
+      background: rgba(217, 138, 95, 0.12);
+      border-left: 3px solid var(--accent-soft);
+      padding: 12px 14px;
+      border-radius: 6px;
+      line-height: 1.55;
+    }
+
     /* Education */
     .edu-grid {
       display: grid;
@@ -468,6 +560,7 @@
       .hero-photo { margin: 0 auto; max-width: 280px; }
       .about-grid { grid-template-columns: 1fr; gap: 30px; }
       .edu-grid { grid-template-columns: 1fr; }
+      .project-card { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
       section.block { padding: 60px 0; }
       .nav-links { display: none; }
       .contact-box { padding: 32px 24px; }
@@ -482,6 +575,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#certifications">Credentials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -627,12 +721,68 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section class="block" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="section-no">03 / Projects</span>
+      </div>
+      <div class="project-card">
+        <div>
+          <span class="project-tag">Full-stack · Med Comms</span>
+          <h3>MoA Image Generator</h3>
+          <p class="project-sub">
+            A full-stack tool for Med Comms teams to generate Mechanism of Action (MoA)
+            scientific illustrations for pharmaceutical assets — combining PubMed research,
+            LLM prompt engineering, and image generation in one workflow.
+          </p>
+          <ol class="project-workflow">
+            <li>Enter a pharmaceutical asset name (e.g. <em>semaglutide</em>, <em>pembrolizumab</em>).</li>
+            <li>The app queries PubMed for relevant MoA steps.</li>
+            <li>Select an LLM (Anthropic / OpenAI / Gemini) to write a structured image prompt.</li>
+            <li>Review and edit the prompt before image generation.</li>
+            <li>Select an image generation model (DALL·E 3 / Imagen 3) and generate 2–3 images.</li>
+          </ol>
+          <div class="project-note">
+            <strong>Note:</strong> Anthropic (Claude) does not provide an image generation API.
+            The Anthropic option is available for the research / prompt-writing step only.
+          </div>
+        </div>
+        <aside class="project-side">
+          <h4>Stack</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python 3.11+</span>
+            <span class="skill-tag">Node.js 20+</span>
+            <span class="skill-tag">PubMed API</span>
+          </div>
+          <h4>LLMs</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Anthropic</span>
+            <span class="skill-tag">OpenAI</span>
+            <span class="skill-tag">Gemini</span>
+          </div>
+          <h4>Image Models</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">DALL·E 3</span>
+            <span class="skill-tag">Imagen 3</span>
+          </div>
+          <h4>For</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Med Comms teams</span>
+            <span class="skill-tag">Pharma assets</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section class="block" id="education">
     <div class="container">
       <div class="section-head">
         <h2>Education</h2>
-        <span class="section-no">03 / Education</span>
+        <span class="section-no">04 / Education</span>
       </div>
       <div class="edu-grid">
         <div class="edu-card">
@@ -654,7 +804,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Credentials &amp; Community</h2>
-        <span class="section-no">04 / Credentials</span>
+        <span class="section-no">05 / Credentials</span>
       </div>
 
       <h3 style="font-size: 18px; margin-bottom: 18px; color: var(--ink-soft); font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Licenses &amp; Certifications</h3>
@@ -687,7 +837,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Get in touch</h2>
-        <span class="section-no">05 / Contact</span>
+        <span class="section-no">06 / Contact</span>
       </div>
       <div class="contact-box">
         <h3>Let's talk consulting.</h3>
